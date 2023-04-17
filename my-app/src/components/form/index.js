@@ -6,7 +6,7 @@ export default function Form(){
     
 const [nota1, setNota1] = useState(null)
 const [nota2, setNota2] = useState(null)
-const [messageMedia, setMessageMedia] = useState("preencha os dados")
+const [messageMedia, setMessageMedia] = useState("Preencha os dados")
 const [media, setMedia] = useState(null)
 const [textButton, setTextButton] = useState("Nota")
 
@@ -21,6 +21,7 @@ const [textButton, setTextButton] = useState("Nota")
                 <Text>Nota 1</Text>
 
                 <TextInput
+                onChangeText={setNota1}
                 placeholder=" Ex. 70"
                 keyboardType="numeric"
                 style={{
@@ -36,6 +37,7 @@ const [textButton, setTextButton] = useState("Nota")
                 <Text>Nota 2</Text>
                 
                 <TextInput
+                onChangeText={setNota2}
                 placeholder=" Ex. 70"
                  keyboardType="numeric"
                  style={{
@@ -50,28 +52,37 @@ const [textButton, setTextButton] = useState("Nota")
 
                 <Button 
                     title="Calcular média"
-                    onPress={validationMedia}
+                    onPress={()=>validationMedia()}
                 />
+
+                
+            <view>
+                <Text>{'\n\n'}</Text>
+                <Text>{messageMedia}</Text>
+                <Text>{'\n'}</Text>
+                <Text>{media}</Text>
+            </view>
 
             </View>
         </View>
     );
    
     function mediaCalculator(){
-        return setMedia(((nota1+nota2)/2).toFixed(2))
+        console.log("Entrei no Media Calculator")
+        setMedia(((parseFloat(nota1)+parseFloat(nota2))/2).toFixed(2))
+    
     }
 
     function validationMedia(){
         if(nota1 != null && nota2 != null){
-        mediaCalculator()
-        setMessageMedia("Sua média é: ")
-        setTextButton("Calcular Novamente")
-        return
-    }
+            setMessageMedia("Sua média é:")
+            mediaCalculator()
+        }
 
-    setMedia(null)
-    setTextButton("Calcular")   
-    setMessageMedia("preencha os dados")
+
+    //setMedia(null)
+    //setTextButton("Calcular")   
+    //setMessageMedia("Preencha os dados")
  }
 
 
