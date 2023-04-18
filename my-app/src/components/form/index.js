@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
+import ResultMedia from "../result";
 
 export default function Form(){
 
@@ -8,7 +9,6 @@ const [nota1, setNota1] = useState(null)
 const [nota2, setNota2] = useState(null)
 const [messageMedia, setMessageMedia] = useState("Preencha os dados")
 const [media, setMedia] = useState(null)
-const [textButton, setTextButton] = useState("Nota")
 
 
 
@@ -57,10 +57,9 @@ const [textButton, setTextButton] = useState("Nota")
 
                 
             <view>
-                <Text>{'\n\n'}</Text>
-                <Text>{messageMedia}</Text>
                 <Text>{'\n'}</Text>
-                <Text>{media}</Text>
+                <ResultMedia messageResultMedia={messageMedia} resultMedia={media}></ResultMedia>
+                
             </view>
 
             </View>
@@ -68,9 +67,7 @@ const [textButton, setTextButton] = useState("Nota")
     );
    
     function mediaCalculator(){
-        console.log("Entrei no Media Calculator")
         setMedia(((parseFloat(nota1)+parseFloat(nota2))/2).toFixed(2))
-    
     }
 
     function validationMedia(){
@@ -80,9 +77,6 @@ const [textButton, setTextButton] = useState("Nota")
         }
 
 
-    //setMedia(null)
-    //setTextButton("Calcular")   
-    //setMessageMedia("Preencha os dados")
  }
 
 
