@@ -13,10 +13,9 @@ const [media, setMedia] = useState(null)
 
 
     return(
-        <View>
+        <View style={{ flex:2, alignItems:'center', justifyContent: 'center'}}>
             <View>
                 
-                <Text>{'\n'}</Text>
 
                 <Text>Nota 1</Text>
 
@@ -32,7 +31,6 @@ const [media, setMedia] = useState(null)
                }}
                 />
 
-                <Text>{'\n'}</Text>
 
                 <Text>Nota 2</Text>
                 
@@ -48,7 +46,6 @@ const [media, setMedia] = useState(null)
                 }}
                 />
 
-                <Text>{'\n'}</Text>
 
                 <Button 
                     title="Calcular média"
@@ -57,9 +54,7 @@ const [media, setMedia] = useState(null)
 
                 
             <view>
-                <Text>{'\n'}</Text>
                 <ResultMedia messageResultMedia={messageMedia} resultMedia={media}></ResultMedia>
-                
             </view>
 
             </View>

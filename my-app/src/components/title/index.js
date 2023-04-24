@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 export default function Title(){
     return(
         <View>
-            <Text>Calculo de média</Text>
+            <h1>Calculo de média</h1>
         </View>
     );
 }
